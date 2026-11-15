@@ -6,5 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "console": "node src/main.js"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
   }
 }
