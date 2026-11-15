@@ -65,3 +65,15 @@ O `src/main.ts` cria usuários, provoca erros de propósito e imprime o resultad
 Os usuários importados vêm de <https://jsonplaceholder.typicode.com/users> (API pública para testes). Dela são
 aproveitados nome, e-mail e endereço. Todo usuário importado entra como `viewer` e `active`, pois a API não tem perfil
 nem status. Se a rede falhar, o resultado volta como `ERRO_CONEXAO`.
+
+## Utilização de IA
+
+Este projeto usou IA como apoio. Abaixo está o que foi gerado por IA.
+
+### Onde a IA foi usada
+
+  | Etapa | Uso da IA | Ferramenta |
+  |-------|-----------|------------|
+  | Módulo base em JavaScript | Geração do módulo de gestão de usuários em Javascript (domínio, validadores, repositório, serviço consumo da API e demonstração no console). Corresponde ao commit "Criação de modulo gestao de usuario com consumo de api opensource gerado por IA". | Kiro |
+  | Tela de teste (HTML, CSS e servidor) | Gerada por IA. Foi removida na versão final. | Decisão do Dev |
+  | Revisão do projeto | Análise do código | Kiro |
