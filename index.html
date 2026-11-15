@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gestão de Usuários (JS)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>Gestão de Usuários</h1>
+
+    <section class="card">
+      <h2>Novo usuário</h2>
+      <form id="form">
+        <label>Nome <input id="name" placeholder="Ana Souza" /></label>
+        <label>E-mail <input id="email" placeholder="ana@exemplo.com" /></label>
+        <label>Perfil
+          <select id="role"></select>
+        </label>
+        <label>Status
+          <select id="status"></select>
+        </label>
+        <fieldset>
+          <legend>Endereço (opcional, mas se preencher use todos os campos obrigatórios)</legend>
+          <label>Rua <input id="street" placeholder="Rua das Flores" /></label>
+          <label>Complemento <input id="suite" placeholder="Apto 12" /></label>
+          <label>Cidade <input id="city" placeholder="Curitiba" /></label>
+          <label>CEP <input id="zipcode" placeholder="80010-0000" /></label>
+        </fieldset>
+        <button type="submit">Criar</button>
+        <button type="button" id="seed" class="secondary">Carregar exemplos</button>
+        <button type="button" id="import" class="secondary">Importar da API</button>
+      </form>
+      <p id="message" role="status"></p>
+    </section>
+
+    <section class="card">
+      <h2>Usuários</h2>
+      <div class="filters">
+        <label>Status
+          <select id="filter"><option value="">Todos</option></select>
+        </label>
+        <label>Cidade
+          <input id="cityFilter" placeholder="Ex.: Curitiba" />
+        </label>
+        <label>Ordenar por
+          <select id="sort">
+            <option value="name">Nome</option>
+            <option value="email">E-mail</option>
+            <option value="createdAt">Data de criação</option>
+          </select>
+        </label>
+        <span id="total"></span>
+      </div>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Nome</th><th>E-mail</th><th>Endereço</th><th>Perfil</th><th>Status</th><th>Permissões</th></tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </section>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
