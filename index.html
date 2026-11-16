@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestão de Usuários</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <h1 class="topbar__title">Gestão de Usuários</h1>
+        <button type="button" id="btn-import" class="btn btn--secondary">Importar da API</button>
+      </div>
+    </header>
+
+    <main class="container layout">
+      <section class="card" aria-labelledby="form-title">
+        <h2 id="form-title" class="card__title">Novo usuário</h2>
+        <form id="user-form" class="form" novalidate>
+          <div class="field">
+            <label for="name">Nome</label>
+            <input id="name" name="name" type="text" autocomplete="off" />
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="off" />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="role">Perfil</label>
+              <select id="role" name="role">
+                <option value="viewer">Viewer</option>
+                <option value="editor">Editor</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="status">Status</label>
+              <select id="status" name="status">
+                <option value="active">Ativo</option>
+                <option value="suspended">Suspenso</option>
+                <option value="deactivated">Desativado</option>
+              </select>
+            </div>
+          </div>
+          <fieldset class="fieldset">
+            <legend>Endereço (opcional)</legend>
+            <div class="field">
+              <label for="street">Rua</label>
+              <input id="street" name="street" type="text" />
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="suite">Complemento</label>
+                <input id="suite" name="suite" type="text" />
+              </div>
+              <div class="field">
+                <label for="city">Cidade</label>
+                <input id="city" name="city" type="text" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="zipcode">CEP</label>
+              <input id="zipcode" name="zipcode" type="text" placeholder="00000-000" />
+            </div>
+          </fieldset>
+          <p id="form-message" class="message" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn btn--primary">Cadastrar</button>
+        </form>
+      </section>
+
+      <section class="card" aria-labelledby="list-title">
+        <div class="card__header">
+          <h2 id="list-title" class="card__title">Usuários</h2>
+          <div class="filters">
+            <select id="filter-status" aria-label="Filtrar por status">
+              <option value="">Todos os status</option>
+              <option value="active">Ativo</option>
+              <option value="suspended">Suspenso</option>
+              <option value="deactivated">Desativado</option>
+            </select>
+            <input id="filter-city" type="search" placeholder="Cidade" aria-label="Filtrar por cidade" />
+            <select id="sort-by" aria-label="Ordenar por">
+              <option value="name">Nome</option>
+              <option value="email">E-mail</option>
+              <option value="createdAt">Data de criação</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Perfil</th>
+                <th>Status</th>
+                <th>Cidade</th>
+              </tr>
+            </thead>
+            <tbody id="users-body">
+              <tr class="table__empty">
+                <td colspan="5">Nenhum usuário cadastrado.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <nav class="pagination" aria-label="Paginação">
+          <button type="button" id="btn-prev" class="btn btn--secondary" disabled>Anterior</button>
+          <span id="page-info" class="pagination__info">Página 1 de 1</span>
+          <button type="button" id="btn-next" class="btn btn--secondary" disabled>Próxima</button>
+        </nav>
+      </section>
+    </main>
+
+    <script type="module" src="/src/ui.ts"></script>
+  </body>
+</html>
